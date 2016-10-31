@@ -22,8 +22,11 @@ keystone.init({
 	'session': true,
 	'auth': true,
 	'user model': 'User',
+	'admin path': 'admin',
+	'wysiwyg images': true
 });
 keystone.import('models');
+keystone.set('signin logo', '../images/logo.png');
 keystone.set('locals', {
 	_: require('lodash'),
 	env: keystone.get('env'),
