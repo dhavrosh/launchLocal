@@ -26,7 +26,7 @@ keystone.init({
 	'wysiwyg images': true
 });
 keystone.import('models');
-keystone.set('signin logo', '../images/logo.png');
+keystone.set('signin logo', '../img/business-img.png');
 keystone.set('locals', {
 	_: require('lodash'),
 	env: keystone.get('env'),
@@ -35,6 +35,7 @@ keystone.set('locals', {
 });
 keystone.set('routes', require('./routes'));
 keystone.set('nav', {
+	home: 'sections',
 	posts: ['posts', 'post-categories'],
 	galleries: 'galleries',
 	enquiries: 'enquiries',
