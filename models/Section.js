@@ -10,10 +10,12 @@ var Section = new keystone.List('Section', {
 Section.add({
 	title: {type: String, required: true},
 	content: { type: Types.Html, wysiwyg: true, height: 150 },
-	order: {type: Types.Number},
+	order: {type: Types.Number, noedit: true},
 	editedDate: {type: Types.Date, default: Date.now}
 });
 
+Section.relationship({path: 'subsections', ref: 'SubSection', refPath: 'section'});
+
 Section.defaultSort = '+order';
-Section.defaultColumns = 'title|20%, content|40%, editedDate|20%, order|10%';
+Section.defaultColumns = 'title|45%, order|10%, editedDate|20%';
 Section.register();

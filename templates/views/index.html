@@ -33,18 +33,16 @@
 <section class="section-get-more"><!--section get-more-->
 	<div class="container">
 		<div class="row">
-			<h2 class="text-center">Get more customers with a ROI Website®</h2>
-			<p class="text-center">Our websites integrate a smart use of psychology and visually stunning design to drive visitors toward your business.</p>
+			<h2 class="text-center">{{ sections[0].section.title }}</h2>
+			{{ sections[0].section.content }}
 			<div class="wrapper-services">
 				<div class="services col-xs-12 col-md-4"><!--block services-->
 					<div class="img-services">
 						<img src="/img/icon-creative.png" />
 					</div>
 					<div class="body-services">
-						<h5>Creative brief</h5>
-						<p>Tell us about your business & complete
-							your creative brief
-						</p>
+						<h5>{{ sections[0].subsections[0].title }}</h5>
+						{{ sections[0].subsections[0].content }}
 					</div>
 				</div><!--end block services-->
 				<div class="services col-xs-12 col-md-4">
@@ -52,10 +50,8 @@
 						<img src="/img/icon-design.png" />
 					</div>
 					<div class="body-services">
-						<h5>Design sample</h5>
-						<p>Approve design sample or request
-							changes
-						</p>
+						<h5>{{ sections[0].subsections[1].title }}</h5>
+						{{ sections[0].subsections[1].content }}
 					</div>
 				</div>
 				<div class="services col-xs-12 col-md-4">
@@ -63,18 +59,16 @@
 						<img src="/img/icon-market.png" />
 					</div>
 					<div class="body-services">
-						<h5>Market Locally</h5>
-						<p>TWe make your creative everywhere,
-							locally
-						</p>
+						<h5>{{ sections[0].subsections[2].title }}</h5>
+						{{ sections[0].subsections[2].content }}
 					</div>
 				</div>
 			</div>
 			<button type="button" class="btn btn-get">get started for free</button>
 			<div class="wrapper-powerful">
 				<div class="block-text-left">
-					<h2 class="text-left">{{ sections[0].title }}</h2>
-					{{ sections[0].content }}
+					<h2 class="text-left">{{ sections[1].section.title }}</h2>
+					{{ sections[1].section.content }}
 				</div>
 				<img src="/img/powerflow-img.png" class="img-responsive pull-right"/>
 			</div>
@@ -86,8 +80,8 @@
 		<div class="row">
 			<div class="col-xs-12 col-md-6"><img src="/img/business-img.png" class="img-responsive pull-left"/></div>
 			<div class="block-text-right">
-				<h2 class="text-left">{{ sections[1].title }}</h2>
-				{{ sections[1].content }}
+				<h2 class="text-left">{{ sections[2].section.title }}</h2>
+				{{ sections[2].section.content }}
 			</div>
 		</div>
 	</div>
@@ -95,68 +89,66 @@
 <section class="section-data"><!--section data-->
 	<div class="container">
 		<div class="row">
-			<h2 class="text-center">Data intelligence driven websites for local business</h2>
-			<p class="text-center">Our websites are designed based on what consumers expect, want and don’t want from local websites, as well as how consumers prefer
-				to contact a local business after viewing their website.
-			</p>
+			<h2 class="text-center">{{ sections[3].section.title }}</h2>
+			{{ sections[3].section.content }}
 			<div class="wrapper-data">
 				<div class="item-data col-xs-12 col-md-6"><!--block item-data-->
 					<span class="icons icon-fined"></span>
 					<div class="body-data">
-						<h5>Easy to find contact information</h5>
-						<p>he contact information such as address, directions, telephone numbers & request forms should be prominently </p>
+						<h5>{{ sections[3].subsections[0].title }}</h5>
+						{{ sections[3].subsections[0].content }}
 					</div>
 				</div><!--end block item-data-->
 				<div class="item-data col-xs-12 col-md-6">
 					<span class="icons icon-hours"></span>
 					<div class="body-data">
-						<h5>Easily view hours of operation</h5>
-						<p>Your hours of operation and other vital should be prominently displayed on the website.</p>
+						<h5>{{ sections[3].subsections[1].title }}</h5>
+						{{ sections[3].subsections[1].content }}
 					</div>
 				</div>
 				<div class="clearfix"></div>
 				<div class="item-data col-xs-12 col-md-6">
 					<span class="icons icon-call"></span>
 					<div class="body-data">
-						<h5>Call to actions & headlines display</h5>
-						<p>When a customer comes to your site, they should no immediately know what your comapny offers and brand name.</p>
+						<h5>{{ sections[3].subsections[2].title }}</h5>
+						{{ sections[3].subsections[2].content }}
 					</div>
 				</div>
 				<div class="item-data col-xs-12 col-md-6">
 					<span class="icons icon-detailed"></span>
 					<div class="body-data">
-						<h5>Detailed service decsriptions</h5>
-						<p>Once your customer understands what services you offer, when they scroll its important to show the detailed description of your services.</p>
+						<h5>{{ sections[3].subsections[3].title }}</h5>
+						{{ sections[3].subsections[3].content }}
 					</div>
 				</div>
 				<div class="clearfix"></div>
 				<div class="item-data col-xs-12 col-md-6">
 					<span class="icons icon-trust"></span>
 					<div class="body-data">
-						<h5>Trust logos & badges</h5>
-						<p>Displaying reviews, certifications, awards from 3rd parties will instill trust in your brand.</p>
+						<h5>{{ sections[3].subsections[4].title }}</h5>
+						{{ sections[3].subsections[4].content }}
 					</div>
 				</div>
 				<div class="item-data col-xs-12 col-md-6">
 					<span class="icons icon-prising"></span>
 					<div class="body-data">
-						<h5>Pricing and payment information</h5>
-						<p>Studies have shown, that by displaying pricing and payment information on the site, the user is 10x's more likely to </p>
+						<h5>{{ sections[3].subsections[5].title }}</h5>
+						{{ sections[3].subsections[5].content }}
 					</div>
 				</div>
 				<div class="clearfix"></div>
 				<div class="item-data col-xs-12 col-md-6">
 					<span class="icons icon-mobile"></span>
 					<div class="body-data">
-						<h5>Mobile version & load times</h5>
-						<p>The quicker your website loads and mobile enabled design, the better chance for conversions.</p>
+						<h5>{{ sections[3].subsections[6].title }}</h5>
+						{{ sections[3].subsections[6].content }}
 					</div>
 				</div>
 				<div class="item-data col-xs-12 col-md-6">
 					<span class="icons icon-media"></span>
 					<div class="body-data">
-						<h5>Social media presence</h5>
-						<p>A well maintained social media presence is crucial, as studies show 60% of all prospects research your business before making a buying </p>
+						<h5>{{ sections[3].subsections[7].title }}</h5>
+						{{ sections[3].subsections[7].content }}
 					</div>
 				</div>
 			</div>
@@ -168,8 +160,8 @@
 		<div class="row">
 			<div class="img-conversion"><img src="/img/img-conversion.png" class="img-responsive"/></div>
 			<div class="block-text-right">
-				<h2>{{ sections[2].title }}</h2>
-				{{ sections[2].content }}
+				<h2>{{ sections[4].section.title }}</h2>
+				{{ sections[4].section.content }}
 			</div>
 		</div>
 	</div>
@@ -178,8 +170,8 @@
 	<div class="container">
 		<div class="row">
 			<div class="block-text-left">
-				<h2>{{ sections[3].title }}</h2>
-				{{ sections[3].content }}
+				<h2>{{sections[5].section.title}}</h2>
+				{{ sections[5].section.content }}
 			</div>
 			<div class="diagram">
 				<div class="info-color">
@@ -197,100 +189,81 @@
 		<iframe class="video"  src="https://www.youtube.com/embed/jhOVibLEDhA" frameborder="0" allowfullscreen></iframe>
 	</div>
 	<div class="wrapper-block-info">
-		<h2>{{ sections[4].title }}
-		</h2>
-		{{ sections[4].content }}
+		<h2>{{ sections[6].section.title }}</h2>
+		{{ sections[6].section.content }}
 		<p><strong>John Doe</strong>
 			<span>CTO LaunchLocal</span>
 			<img src="/img/icon-signature.png"/>
 		</p>
 	</div>
 	<div class="wrapper-comments">
-		<h5>Thousands of happy clients</h5>
+		<h5>{{ sections[7].section.title }}</h5>
 		<p class="text-center">Our websites integrate a smart use of psychology and visually stunning design to drive visitors toward your business.</p>
 		<div class="slider-comment"><!--slider comment-->
 			<div class="comment"><!--block comment-->
 				<div>
-					<p>It's simple, simply complete the questionaire form, gather all required documents
-						such as logos, branding guidelines and content. Our design team will build a custom designed mockup for your website, at no cost to you.
-					</p>
+					{{ sections[7].subsections[0].content }}
 					<div class="user-name">
 						<i class="icon-quotes"></i>
-						<span>- John Smith,</span>
-						<p>Trade Company, NY</p>
+						<p>{{ sections[7].subsections[0].title }}</p>
 					</div>
 				</div>
 			</div><!--end block comment-->
-			<div class="comment">
+			<div class="comment"><!--block comment-->
 				<div>
-					<p>It's simple, simply complete the questionaire form, gather all required documents
-						such as logos, branding guidelines and content. Our design team will build a custom designed mockup for your website, at no cost to you.
-					</p>
+					{{ sections[7].subsections[1].content }}
 					<div class="user-name">
 						<i class="icon-quotes"></i>
-						<span>- John Smith,</span>
-						<p>Trade Company, NY</p>
+						<p>{{ sections[7].subsections[1].title }}</p>
 					</div>
 				</div>
-			</div>
-			<div class="comment">
+			</div><!--end block comment-->
+			<div class="comment"><!--block comment-->
 				<div>
-					<p>It's simple, simply complete the questionaire form, gather all required documents
-						such as logos, branding guidelines and content. Our design team will build a custom designed mockup for your website, at no cost to you.
-					</p>
+					{{ sections[7].subsections[2].content }}
 					<div class="user-name">
 						<i class="icon-quotes"></i>
-						<span>- John Smith,</span>
-						<p>Trade Company, NY</p>
+						<p>{{ sections[7].subsections[2].title }}</p>
 					</div>
 				</div>
-			</div>
-			<div class="comment">
+			</div><!--end block comment-->
+			<div class="comment"><!--block comment-->
 				<div>
-					<p>It's simple, simply complete the questionaire form, gather all required documents
-						such as logos, branding guidelines and content. Our design team will build a custom designed mockup for your website, at no cost to you.
-					</p>
+					{{ sections[7].subsections[3].content }}
 					<div class="user-name">
 						<i class="icon-quotes"></i>
-						<span>- John Smith,</span>
-						<p>Trade Company, NY</p>
+						<p>{{ sections[7].subsections[3].title }}</p>
 					</div>
 				</div>
-			</div>
-			<div class="comment">
+			</div><!--end block comment-->
+			<div class="comment"><!--block comment-->
 				<div>
-					<p>It's simple, simply complete the questionaire form, gather all required documents
-						such as logos, branding guidelines and content. Our design team will build a custom designed mockup for your website, at no cost to you.
-					</p>
+					{{ sections[7].subsections[4].content }}
 					<div class="user-name">
 						<i class="icon-quotes"></i>
-						<span>- John Smith,</span>
-						<p>Trade Company, NY</p>
+						<p>{{ sections[7].subsections[4].title }}</p>
 					</div>
 				</div>
-			</div>
-			<div class="comment">
+			</div><!--end block comment-->
+			<div class="comment"><!--block comment-->
 				<div>
-					<p>It's simple, simply complete the questionaire form, gather all required documents
-						such as logos, branding guidelines and content. Our design team will build a custom designed mockup for your website, at no cost to you.
-					</p>
+					{{ sections[7].subsections[5].content }}
 					<div class="user-name">
 						<i class="icon-quotes"></i>
-						<span>- John Smith,</span>
-						<p>Trade Company, NY</p>
+						<p>{{ sections[7].subsections[5].title }}</p>
 					</div>
 				</div>
-			</div>
+			</div><!--end block comment-->
 		</div><!--end slider comment-->
 	</div>
 </section><!--end section  video and cooment-->
 <section class="section-mockup"><!--section  mockup-->
-	<h2 class="text-center">See what your new website will look like, before you buy</h2>
+	<h2 class="text-center">{{ sections[8].section.title }}</h2>
 	<button type="button" class="btn btn-request">Request free mockup</button>
 </section><!--end section  mockup-->
 <section class="section-popular-local"><!--section  popular-local-->
-	<h2 class="text-center">We get you found on popular local sites like these</h2>
-	<p class="text-center">From start-up fortune 5000, we can handle all the local marketing for your brand.</p>
+	<h2 class="text-center">{{ sections[9].section.title }}</h2>
+	<p class="text-center">{{ sections[9].section.content }}</p>
 	<div class="container">
 		<div class="row">
 			<div class="wrapper-popular">
@@ -312,42 +285,42 @@
 <section class="every-day"><!--section  every-day-->
 	<div class="container">
 		<div>
-			<h2 class="text-center">All for less than what you spend on coffee every day</h2>
+			<h2 class="text-center">{{ sections[10].section.title }}</h2>
 			<img src="img/coffe.png" class="img-responsive"/>
-			<button type="button" class="btn btn-request">see pricing</button>
+			<button type="button" class="btn btn-request">See pricing</button>
 		</div>
 	</div>
 </section><!--end section  every-day-->
 <section class="section-question"><!--section question -->
 	<div class="container">
 		<div class="row">
-			<h2 class="text-center">Frequently Asked Questions</h2>
-			<p class="text-center">Got questions? We have answers.</p>
+			<h2 class="text-center">{{ sections[11].section.title }}</h2>
+			{{ sections[11].section.content }}
 			<div class="wrapper-question">
 				<div class="question"><!--block question-->
 					<h6>
-						How does the free website mockup work?
+						{{ sections[11].subsections[0].title }}
 					</h6>
-					<p>It's simple, simply complete the questionaire form, gather all required documents such as logos, branding guidelines and content. Our design team will build a custom designed mockup for your website, at no cost to you.</p>
+					{{ sections[11].subsections[0].content }}
 				</div><!--end block question-->
-				<div class="question">
+				<div class="question"><!--block question-->
 					<h6>
-						How much does it cost?
+						{{ sections[11].subsections[1].title }}
 					</h6>
-					<p>Generally speaking our websites, are priced around $1750, split in 2 payments. We will try our best to work with you based on your budget.</p>
-				</div>
-				<div class="question">
-					<h6>I sell retail, can I sell products from my website?</h6>
-					<p>Yes, we have solutions for full complex ecommerce solutions, simple ecommerce solutions and service based payment solutions.</p>
-				</div>
-				<div class="question">
+					{{ sections[11].subsections[1].content }}
+				</div><!--end block question-->
+				<div class="question"><!--block question-->
 					<h6>
-						Do you market our website?
+						{{ sections[11].subsections[2].title }}
 					</h6>
-					<p>Yes, this is our speciality, we have taken startup local businesses from
-						a single entity to a Fortune 5000 company.
-					</p>
-				</div>
+					{{ sections[11].subsections[2].content }}
+				</div><!--end block question-->
+				<div class="question"><!--block question-->
+					<h6>
+						{{ sections[11].subsections[3].title }}
+					</h6>
+					{{ sections[11].subsections[3].content }}
+				</div><!--end block question-->
 			</div>
 		</div>
 	</div>
@@ -356,8 +329,8 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-12 col-md-5">
-				<h2>Join Our Newsletter</h2>
-				<p>Please enter your email address in the form below</p>
+				<h2>{{ sections[12].section.title}}</h2>
+				{{ sections[12].section.content }}
 				<form>
 					<div class="form-group">
 						<input type="email" class="form-control" placeholder="E-mail">

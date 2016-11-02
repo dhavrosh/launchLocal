@@ -1,9 +1,11 @@
 var keystone = require('keystone');
+var async = require('async');
 
 exports = module.exports = function (req, res) {
 
 	var view = new keystone.View(req, res);
 	var locals = res.locals;
+	var SubSection = keystone.list('SubSection');
 
 	// locals.section is used to set the currently selected
 	// item in the header navigation.
@@ -16,8 +18,28 @@ exports = module.exports = function (req, res) {
 			.find({})
 			.sort('order')
 			.exec(function (err, results) {
-				locals.sections = results;
-				next(err);
+				if (err) {
+					next(err);
+				}
+				
+				async.mapSeries(results, function(result, cb) {
+					SubSection.model
+								.find()
+								.where('section', result._id)
+								.sort('order')
+								.exec(function(err, subsections) {
+									if (err) {
+										cb(err);
+									}
+									cb(null, {
+										section: result, 
+										subsections
+									});
+								});
+				}, function(err, results){
+					locals.sections = results;
+					next(err);
+				});
 			});
 	});
 
