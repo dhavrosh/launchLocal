@@ -56,14 +56,16 @@ exports = module.exports = function (req, res) {
 
 	// Load the posts
 	view.on('init', function (next) {
-
+		var step = 6,
+			perPage = req.query.perPage || step;
+		
 		var q = keystone.list('Post').paginate({
-			page: req.query.page || 1,
-			perPage: 10,
-			maxPages: 10,
+			page: 1,
+			perPage:  perPage,
+			maxPages: 1,
 			filters: {
-				state: 'published',
-			},
+				state: 'published'
+			}
 		})
 			.sort('-publishedDate')
 			.populate('author categories');
@@ -74,6 +76,7 @@ exports = module.exports = function (req, res) {
 
 		q.exec(function (err, results) {
 			locals.data.posts = results;
+			locals.data.posts.last += step;
 			next(err);
 		});
 	});
