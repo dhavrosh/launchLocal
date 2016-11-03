@@ -40,10 +40,32 @@ $(document).ready(function(){
     }
   ]
   });
-	
-	
 
-    new Chartist.Bar('.ct-chart', {
+	function aaa(){
+	/*if ($(window).width() > 768) {*/
+		  	$('.grid').masonry({
+ itemSelector: '.block-blog',
+  columnWidth: '.block-blog',
+		 percentPosition: true
+});
+
+	}
+	//}
+	
+	aaa();
+	
+	$(window).resize(function () {
+		if ($(window).width() > 768) {
+		aaa();
+			}
+	});
+
+
+});
+
+
+	function diagrama(){
+			       new Chartist.Bar('.ct-chart', {
   labels: ['<span class="wrapper-img-diagram"><img src="img/icon-logo.png" class="img-responsive"/></span>', 
 		   '<span class="wrapper-img-diagram"><img src="img/icon-casper.png" class="img-responsive"/></span>', 
 		   '<span class="wrapper-img-diagram"><img src="img/icon-leesa.png" class="img-responsive"/></span>',
@@ -69,13 +91,6 @@ $(document).ready(function(){
     });
   }
 });
+	};
 
-
-  
-	
-
-});
-
-
-
-
+ diagrama();

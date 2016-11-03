@@ -1,125 +1,123 @@
-{% extends "layouts/default.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/slick.css" rel="stylesheet">
+	<link href="css/font-awesome.min.css" rel="stylesheet">
+	<link href="css/chartist.min.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+	<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+<body>
+<header class="header-page">
+	<!--header-->
+	<div class="header-top">
+		<div class="container">
+			<div class=row>
+				<a href="#" class="logo"></a>
+				<p class="call">Call us <span>1.800.439.7656</span></p>
+			</div>
+		</div>
+	</div>
+</header>
+<!--end header-->
 
 {% macro blogPost(post) %}
-<div class="post" data-ks-editable="editable(user, { list: " Post ", id: post.id })">
-	<h2>
-		<a href="/blog/post/{{ post.slug }}">{{ post.title }}</a>
-	</h2>
-	<p class="lead text-muted">Posted
-		{% if post.publishedDate %}
-			<br>on {{ post._.publishedDate.format("MMMM Do, YYYY") }}
+
+<div class="block-blog">
+	<div>
+		{% if post.image.exists %}
+		<img src="{{ post.image.url }}" class="img-responsive"/>
 		{% endif %}
-		{% if post.categories and post.categories.length %}
-			<br>in {% for cat in post.categories %}<a href="/blog/{{ cat.key }}">{{ cat.name }}</a>{% if loop.index < post.categories.length %}, {% endif %}{% endfor %}
-		{% endif %}
-		{% if post.author %}
-			<br>by {{ post.author.name.first }}
-		{% endif %}
-	</p>
-	{% if post.image.exists %}
-		<img src="{{ post._.image.fit(160,160) }}" class="img pull-right">
-	{% endif %}
-	<p>{{ post.content.brief|safe }}</p>
-	{% if post.content.extended %}
-		<p class="read-more">
-			<a href="/blog/post/{{ post.slug }}">Read more...</a>
-		</p>
-	{% endif %}
+		<div class="body-blog">
+			<h2>{{ post.title }}</h2>
+			<p>{{ post.content.brief|safe }}</p>
+			<div class="footer-blog">
+				<a href="/blog/post/{{ post.slug }}">Continue reading</a>
+				<div class="share">
+					<i class="fa fa-share-alt fa-lg" aria-hidden="true"></i>
+					<ul class="share-social">
+						<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+						<li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+						<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 {% endmacro %}
 
-{% block intro %}
-<div class="container">
-	{% set title = ( data.category.name if data.category else "Blog" ) %}
-	<h1>{{ title }}</h1>
-</div>
-{% endblock %}
-
-{% block content %}
-<div class="container">
-	<div class="row">
-		<div class="col-sm-8 col-md-9">
-			{% if filters.category and not data.category %}
-				<h3 class="text-muted">Invalid Category.</h3>
-			{% else %}
-				{% if data.posts.results.length %}
-					{% if data.posts.totalPages > 1 %}
-						<h4 class="text-weight-normal">
-							Showing
-							<strong>{{ data.posts.first }}</strong>
-							to
-							<strong>{{ data.posts.last }}</strong>
-							of
-							<strong>{{ data.posts.total }}</strong>
-							posts.
-						</h4>
-					{% else %}
-						<h4 class="text-weight-normal">Showing {{ utils.plural(data.posts.results.length, "* post") }}.</h4>
-					{% endif %}
-					<div class="blog">
-						{% for post in data.posts.results %} {{ blogPost(post) }} {% endfor %}
+<section class="section-blog">
+	<div class="container">
+		<div class="row">
+			<h1 class="title-page">Blog</h1>
+			<div class="wrapper-blog">
+				<div class="row">
+					<div class="grid">
+						{% if data.posts.results.length > 0 %}
+							{% for post in data.posts.results %} {{ blogPost(post) }} {% endfor %}
+						{% else %}
+							<div class="col-lg-12">
+								<h3 class="text-muted">There are no posts yet.</h3>
+							</div>
+						{% endif %}
 					</div>
-					{% if data.posts.totalPages > 1 %}
-						<ul class="pagination">
-							
-							{% if data.posts.previous %}
-								<li>
-									<a href="?page={{ data.posts.previous }}">
-										<span class="glyphicon glyphicon-chevron-left"></span>
-									</a>
-								</li>
-							{% else %}
-								<li class="disabled">
-									<a href="?page=1">
-										<span class="glyphicon glyphicon-chevron-left"></span>
-									</a>
-								</li>
-							{% endif %}
-
-							{% for p in data.posts.pages %} {% set class = ( "active" if data.posts.currentPage == p else "" ) %}
-								<li class="{{ class }}">
-									{% set page = ( (data.posts.totalPages if i else 1) if p == "..." else p ) %}
-									<a href="?page={{ page }}">{{ p }}</a>
-								</li>
-							{% endfor %}
-
-							{% if data.posts.next %}
-								<li>
-									<a href="?page={{ data.posts.next }}">
-										<span class="glyphicon glyphicon-chevron-right"></span>
-									</a>
-								</li>
-							{% else %}
-								<li class="disabled">
-									<a href="?page={{ data.posts.totalPages }}">
-										<span class="glyphicon glyphicon-chevron-right"></span>
-									</a>
-								</li>
-							{% endif %}
-
-						</ul>
-					{% endif %}
-				{% else %}
-					{% if data.category %}
-						<h3 class="text-muted">There are no posts in the category {{ data.category.name }}.</h3>
-					{% else %}
-						<h3 class="text-muted">There are no posts yet.</h3>
-					{% endif %}
-				{% endif %}
-			{% endif %}
-		</div>
-		{% if data.categories.length %}
-			<div class="col-sm-4 col-md-3">
-				<h2>Categories</h2>
-				<div class="list-group" style="margin-top: 70px;">
-					{% set class = ( "active" if not data.category else "" ) %}
-					<a href="/blog" class="{{ class }} list-group-item">All Categories</a>
-					{% for cat in data.categories %} {% set class = ( "active" if data.category and data.category.id == cat.id else "" ) %}
-						<a href="/blog/{{ cat.key }}" class="{{ class }} list-group-item">{{ cat.name }}</a>
-					{% endfor %}
 				</div>
+				<button type="button" class="btn btn-request">Load more post</button>
 			</div>
-		{% endif %}
+		</div>
 	</div>
-</div>
-{% endblock %}
+</section>
+<section class="section-newsletter">
+	<!--section newsletter -->
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 col-md-5">
+				<h2>Join Our Newsletter</h2>
+				<p>Please enter your email address in the form below</p>
+				<form>
+					<div class="form-group">
+						<input type="email" class="form-control" placeholder="E-mail">
+					</div>
+					<button type="submit" class="btn btn-request">subscribe</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</section>
+<!--end section newsletter -->
+<footer>
+	<!-- footer-->
+	<div class="container">
+		<div class="row">
+			<a class="logo-footer" href="#"></a>
+			<div class="block-left-footer pull-right">
+				<ul class="social">
+					<li><a href="#"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+					<li><a href="#"><i class="fa fa-google-plus fa-lg" aria-hidden="true"></i></a></li>
+					<li><a href="#"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+					<li><a href="#"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+					<li><a href="#"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+				</ul>
+				<p class="call">Call us <span>1.800.439.7656</span></p>
+			</div>
+		</div>
+	</div>
+</footer>
+<!-- end footer-->
+<script src="/js/jquery-2.2.1.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/slick.min.js"></script>
+<script src="/js/masonry.pkgd.min.js"></script>
+<script src="/js/chartist.min.js"></script>
+<script src="/js/scripts.js"></script>
+</body>
+</html>
